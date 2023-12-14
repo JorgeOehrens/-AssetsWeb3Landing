@@ -10,10 +10,7 @@ const Home08 = () => {
         <section className="tf-item tf-section">
                 <div className="themesflat-container">
                     <div className="row">
-                        <div className="col-box-17">
-                            <SideBar />
-                        </div>
-                        
+                    
                         <div className="col-box-83">
                             <ItemContent />
                         </div>

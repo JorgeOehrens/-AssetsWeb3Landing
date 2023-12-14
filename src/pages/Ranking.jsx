@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/header/Header';
+import Header from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 import img1 from '../assets/images/box-item/img3rank.jpg'
 import img2 from '../assets/images/box-item/img4rank.jpg'
@@ -160,30 +160,14 @@ const Ranking = () => {
         ]
     )
     const [visible , setVisible] = useState(6);
-    const showMoreItems = () => {
+    const showMoreItems = () => {f
         setVisible((prevValue) => prevValue + 3);
     }
     return (
         <div>
             <Header />
             <section className="flat-title-page inner">
-                <div className="overlay"></div>
-                <div className="themesflat-container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="page-title-heading mg-bt-12">
-                                <h1 className="heading text-center">Ranking</h1>
-                            </div>
-                            <div className="breadcrumbs style2">
-                                <ul>
-                                    <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Pages</Link></li>
-                                    <li>Ranking</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>                    
+              
             </section>
             <section className="tf-section tf-rank">
                 <div className="container-fluid">
@@ -192,7 +176,7 @@ const Ranking = () => {
                             <div className="table-ranking">
                                 <div className="flex th-title">
                                     <div className="column1">
-                                        <h3>Collection</h3>
+                                        <h3>Proyect</h3>
                                     </div>
                                     <div className="column">
                                         <h3>Volume</h3>
@@ -204,7 +188,7 @@ const Ranking = () => {
                                     <h3>7d %</h3>
                                     </div>
                                     <div className="column">
-                                    <h3>Floor Price</h3>
+                                    <h3>ETH Price</h3>
                                     </div>
                                     <div className="column">
                                     <h3>Owners</h3>
@@ -268,7 +252,6 @@ const Ranking = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
         </div>
     );
 }

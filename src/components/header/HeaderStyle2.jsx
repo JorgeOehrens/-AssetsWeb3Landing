@@ -2,7 +2,7 @@ import React , { useRef , useState , useEffect } from 'react';
 import { Link , useLocation } from "react-router-dom";
 import menus from "../../pages/menu";
 import DarkMode from './DarkMode';
-import logodark from '../../assets/images/logo/logo_dark.png'
+import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
 import coin from '../../assets/images/logo/coin.svg'
 
@@ -77,29 +77,20 @@ const HeaderStyle2 = () => {
                                     </form>
                                 </div>
                                 <nav id="main-nav" className="main-nav" ref={menuLeft} >
-                                    <ul id="menu-primary-menu" className="menu">
-                                        {
-                                            menus.map((data,index) => (
-                                                <li key={index} onClick={()=> handleOnClick(index)} className={`menu-item ${data.namesub ? 'menu-item-has-children' : '' } ${activeIndex === index ? 'active' : ''} ` }   >
-                                                    <Link to="#">{data.name}</Link>
-                                                    {
-                                                        data.namesub &&
-                                                        <ul className="sub-menu" >
-                                                        {
-                                                            data.namesub.map((submenu) => (
-                                                                <li key={submenu.id} className={
-                                                                    pathname === submenu.links
-                                                                      ? "menu-item current-item"
-                                                                      : "menu-item"
-                                                                  }><Link to={submenu.links}>{submenu.sub}</Link></li>
-                                                            ))
-                                                        }
-                                                    </ul>
-                                                    }
-                                                </li>
-                                            ))
-                                        }
-                                    </ul>
+                                <ul id="menu-primary-menu" className="menu">
+                    {menus.map((data, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleOnClick(index)}
+                        className={`menu-item ${
+                          data.namesub ? "menu-item-has-children" : ""
+                        } ${activeIndex === index ? "active" : ""} `}
+                      >
+                        <Link to={data.links}>{data.name}</Link>
+                        {data.namesub && <ul className="sub-menu"></ul>}
+                      </li>
+                    ))}
+                  </ul>
                                 </nav>
                                 <div className="flat-search-btn flex">
                                     <div className="sc-btn-top mg-r-12" id="site-header">
