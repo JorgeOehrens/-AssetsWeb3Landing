@@ -1346,8 +1346,8 @@ a:focus {
 /* Header
 -------------------------------------------------------------- */
 .dark .logo_header{
-    width: 143px !important;
-    height: 116px !important;
+    width: 135px !important;
+    height: 56px !important;
 }
 header{
     padding-right: 0 !important;
@@ -1529,8 +1529,8 @@ header{
     transform        : translateY(-50%);
 }
 .main-logo img {
-    width: 20% !important;
-    height: 20% !important;
+    width: 133px;
+    height: 56px;
 }
 .main-logo img,
 .main-logo h2 {
@@ -2083,8 +2083,7 @@ header{
     width     : 100%;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 30%);
     z-index   : 9999;
-    background: linear-gradient(
-        227.3deg, #8A208C 0%, #181B81 100.84%);
+    background: linear-gradient(216.56deg, #003fff  5.32%, #01144d  94.32%);
     border: none;
     opacity: 1;
     -webkit-transition: all 0.5s ease;

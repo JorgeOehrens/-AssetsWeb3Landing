@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/header/HeaderStyle2';
 import ItemContent from '../components/layouts/home-8/ItemContent';
 import SideBar from '../components/layouts/home-8/SideBar';
-
+import LiveAuction from '../components/layouts/LiveAuction';
 const Home08 = () => {
   return (
     <div className='home-8'>
@@ -10,8 +10,9 @@ const Home08 = () => {
         <section className="tf-item tf-section">
                 <div className="themesflat-container">
                     <div className="row">
-                    
-                        <div className="col-box-83">
+                   
+                        
+                        <div className="col-lg-12">
                             <ItemContent />
                         </div>
                     </div>

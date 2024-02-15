@@ -15,8 +15,12 @@ import img5 from "../assets/images/avatar/avt-7.jpg";
 import img6 from "../assets/images/avatar/avt-8.jpg";
 import img7 from "../assets/images/avatar/avt-2.jpg";
 import imgdetail1 from "../assets/images/avatar/avt-18.jpg";
+import CardModal from "../components/layouts/CardModal";
 
 const ItemDetails01 = () => {
+
+  const [modalShow, setModalShow] = useState(false);
+
   const [dataHistory] = useState([
     {
       img: img1,
@@ -56,7 +60,7 @@ const ItemDetails01 = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="page-title-heading mg-bt-12">
-                <h1 className="heading text-center">Proyecto inmobiliario</h1>
+                <h1 className="heading text-center">Tanglewood Racquet Village</h1>
               </div>
               <div className="breadcrumbs style2">
                 <ul>
@@ -66,7 +70,7 @@ const ItemDetails01 = () => {
                   <li>
                     <Link to="#">Marketplace</Link>
                   </li>
-                  <li>Hacienda Guay Guay</li>
+                  <li>Tanglewood Racquet Village </li>
                 </ul>
               </div>
             </div>
@@ -86,7 +90,7 @@ const ItemDetails01 = () => {
             <div className="col-xl-6 col-md-12">
               <div className="content-right">
                 <div className="sc-item-details">
-                  <h2 className="style2">Hacienda Guay Guay </h2>
+                  <h2 className="style2">Tanglewood Racquet Village Token (TRV) </h2>
                   <div className="meta-item">
                     <div className="left">
                       <span className="viewed eye">225</span>
@@ -106,8 +110,8 @@ const ItemDetails01 = () => {
                           <span>Contrato</span>
                           <h6>
                             {" "}
-                            <Link to="#">
-                              0x2834b7c7b2c7c8355002ec5498419cf1a5f3662f03688d9dc22bee31c9be8a5d
+                            <Link to="https://goerli.etherscan.io/address/0xaebcc73995c009c2a0e85cfecbb7730b568bf61a">
+                            0xaEBCC73995C009c2A0E85CfEcBb7730B568Bf61a
                             </Link>{" "}
                           </h6>
                         </div>
@@ -119,10 +123,10 @@ const ItemDetails01 = () => {
                           <img src={img7} alt="Axies" />
                         </div>
                         <div className="info">
-                          <span>Inmobiliaria</span>
+                          <span>Autor</span>
                           <h6>
                             {" "}
-                            <Link to="#">Fundamenta</Link>{" "}
+                            <Link to="#">Tanglewood Racquet Village </Link>{" "}
                           </h6>
                         </div>
                       </div>
@@ -131,11 +135,11 @@ const ItemDetails01 = () => {
                   <p>Descripción del proyecto</p>
                   <div className="meta-item-details style2">
                     <div className="item meta-price">
-                      <span className="heading">Valor m2</span>
+                      <span className="heading">Valor token</span>
                       <div className="price">
                         <div className="price-box">
-                          <h5> 4.89 ETH</h5>
-                          <span>= $12.246</span>
+                          <h5>0.41 ETH</h5>
+                          <span>= $ 1.082 USD</span>
                         </div>
                       </div>
                     </div>
@@ -146,12 +150,12 @@ const ItemDetails01 = () => {
                       </Countdown>
                     </div>
                   </div>
-                  <Link
-                    to="https://guayguay.assetsweb3.com/"
-                    className="sc-button loadmore style bag fl-button pri-3"
-                  >
-                    <span>Invertir</span>
-                  </Link>
+                  <button
+                                    onClick={() => setModalShow(true)}
+                                    className="sc-button style-place-bid style bag fl-button pri-3"
+                                  >
+                                    <span>Invertir</span>
+                                  </button>
                   <div className="flat-tabs themesflat-tabs">
                     <Tabs>
                       <TabList>
@@ -198,17 +202,19 @@ const ItemDetails01 = () => {
                         </ul>
                       </TabPanel>
                       <TabPanel>
-                        <ul className="bid-history-list">
-                          <li>
-                            <div className="content">
-                              <div className="client">
-                                <div className="sc-author-box style-2">
-                                  <div className="author-avatar"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
+                      <div className="asset-details">
+    <ul>
+      <li><p>Loan Amount:</p> $5,300,000</li>
+      <li><p>Number of Participants:</p> 49</li>
+      <li><p>Quota per Participant:</p> $108,163</li>
+      <li><p>Ticket per Participant:</p> $100</li>
+      <li><p>Asset Unit (USD):</p> $1,082</li>
+      <li><p>Number of Transactions:</p> 4,900</li>
+      <li><p>Collateral Value:</p> $10,685,000</li>
+      <li><p>Liquidation Time:</p> 9 months</li>
+      <li><p>Total Return:</p> 9.50%</li>
+    </ul>
+  </div>
                       </TabPanel>
                       <TabPanel>
                         <div className="provenance">
@@ -236,6 +242,8 @@ const ItemDetails01 = () => {
           </div>
         </div>
       </div>
+      <CardModal show={modalShow} onHide={() => setModalShow(false)} />
+
       <LiveAuction data={liveAuctionData} />
       <Footer />
     </div>

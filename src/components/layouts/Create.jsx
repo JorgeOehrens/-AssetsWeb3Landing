@@ -61,7 +61,7 @@ const CreateItem = (props) => (
         </div>
       </div>
       <h3 className="heading">
-        <Link to="/wallet-connect">{props.item.title}</Link>
+        <Link to="https://docs.assetsweb3.com/">{props.item.title}</Link>
       </h3>
       <p className="content">{props.item.description}</p>
     </div>

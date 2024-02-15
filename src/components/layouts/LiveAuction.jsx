@@ -61,15 +61,8 @@ const LiveAuction = (props) => {
                                 <Link to="/item-details-01">
                                   <img src={item.img} alt="proyecto" />
                                 </Link>
-                                <Link to="/login" className="wishlist-button ">
-                                  <span className="">{item.wishlist}</span>
-                                </Link>
-                                <div className="featured-countdown">
-                                  <span className="slogan"></span>
-                                  <Countdown date={Date.now() + 500000000}>
-                                    <span>You are good to go!</span>
-                                  </Countdown>
-                                </div>
+                              
+                              
                                 <div className="button-place-bid">
                                   <button
                                     onClick={() => setModalShow(true)}
@@ -96,7 +89,7 @@ const LiveAuction = (props) => {
                                     <span>Contrato</span>
                                     <h6>
                                       {" "}
-                                      <Link to="/authors-02">
+                                      <Link to="/https://goerli.etherscan.io/address/0xaebcc73995c009c2a0e85cfecbb7730b568bf61a">
                                         {item.nameAuthor}
                                       </Link>{" "}
                                     </h6>

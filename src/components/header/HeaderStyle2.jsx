@@ -57,7 +57,7 @@ const HeaderStyle2 = () => {
                                     <form action="#" method="get">
                                         <input type="text" placeholder="Type to search..." required />
                                         <button type="submit">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            {/* <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <mask id="mask0_334_638"  maskUnits="userSpaceOnUse" x="1" y="1" width="18" height="17">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M1.66699 1.66666H17.6862V17.3322H1.66699V1.66666Z" fill="white" stroke="white"/>
                                                 </mask>
@@ -72,29 +72,38 @@ const HeaderStyle2 = () => {
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M17.7166 18.3333C17.5596 18.3333 17.4016 18.2746 17.2807 18.1572L14.3823 15.3308C14.1413 15.0952 14.1405 14.7131 14.3815 14.4774C14.6217 14.2402 15.0123 14.2418 15.2541 14.4758L18.1526 17.303C18.3935 17.5387 18.3944 17.9199 18.1534 18.1556C18.0333 18.2746 17.8746 18.3333 17.7166 18.3333Z" fill="white"/>
                                                 <path d="M17.7166 18.3333C17.5595 18.3333 17.4016 18.2746 17.2807 18.1572L14.3823 15.3308C14.1413 15.0952 14.1405 14.7131 14.3815 14.4774C14.6217 14.2402 15.0123 14.2418 15.2541 14.4758L18.1526 17.303C18.3935 17.5387 18.3944 17.9199 18.1534 18.1556C18.0333 18.2746 17.8746 18.3333 17.7166 18.3333" stroke="white"/>
                                                 </g>
-                                                </svg>
+                                                </svg> */}
                                         </button>
                                     </form>
                                 </div>
                                 <nav id="main-nav" className="main-nav" ref={menuLeft} >
-                                <ul id="menu-primary-menu" className="menu">
-                    {menus.map((data, index) => (
-                      <li
-                        key={index}
-                        onClick={() => handleOnClick(index)}
-                        className={`menu-item ${
-                          data.namesub ? "menu-item-has-children" : ""
-                        } ${activeIndex === index ? "active" : ""} `}
-                      >
-                        <Link to={data.links}>{data.name}</Link>
-                        {data.namesub && <ul className="sub-menu"></ul>}
-                      </li>
-                    ))}
-                  </ul>
+                                    <ul id="menu-primary-menu" className="menu">
+                                        {
+                                            menus.map((data,index) => (
+                                                <li key={index} onClick={()=> handleOnClick(index)} className={`menu-item ${data.namesub ? 'menu-item-has-children' : '' } ${activeIndex === index ? 'active' : ''} ` }   >
+                                                    <Link to={data.links}>{data.name}</Link>
+                                                    {
+                                                        data.namesub &&
+                                                        <ul className="sub-menu" >
+                                                        {
+                                                            data.namesub.map((submenu) => (
+                                                                <li key={submenu.id} className={
+                                                                    pathname === submenu.links
+                                                                      ? "menu-item current-item"
+                                                                      : "menu-item"
+                                                                  }><Link to={submenu.links}>{submenu.sub}</Link></li>
+                                                            ))
+                                                        }
+                                                    </ul>
+                                                    }
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
                                 </nav>
                                 <div className="flat-search-btn flex">
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                        <Link to="/wallet-connect" className="sc-button header-slider style style-1 wallet fl-button pri-1"><span>Wallet connect
+                                        <Link to="https://dashboard-w3-v2.vercel.app/" className="sc-button header-slider style style-1 wallet fl-button pri-1"><span>Wallet connect
                                         </span></Link>
                                     </div>
 

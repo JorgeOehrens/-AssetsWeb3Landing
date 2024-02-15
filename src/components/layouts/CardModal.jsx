@@ -16,21 +16,21 @@ const CardModal = (props) => {
         <input type="text" className="form-control" placeholder="00.00 USD" />
         <p>
           Ingresa cantidad.{" "}
-          <span className="color-popup">900 m2 disponibles</span>
+          <span className="color-popup">4900 tokens avalible</span>
         </p>
         <input type="number" className="form-control" placeholder="1" />
         <div className="hr"></div>
         <div className="d-flex justify-content-between">
           <p> Necesitar tener mínimo:</p>
-          <p className="text-right price color-popup"> 150 USD </p>
+          <p className="text-right price color-popup"> 182 USD </p>
         </div>
         <div className="d-flex justify-content-between">
           <p> Servicio Fee:</p>
-          <p className="text-right price color-popup"> 0,89 ETH </p>
+          <p className="text-right price color-popup"> 0,057 ETH </p>
         </div>
         <div className="d-flex justify-content-between">
           <p> Total a invertir:</p>
-          <p className="text-right price color-popup"> x m2 </p>
+          <p className="text-right price color-popup"> x tokens </p>
         </div>
         <Link
           to="/wallet-connect"

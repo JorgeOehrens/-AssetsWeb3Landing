@@ -65,17 +65,12 @@ const SliderItem = (props) => (
                   <h1 className="heading">{props.item.title_3}</h1>
                   <p className="sub-heading">{props.item.description}</p>
                   <div className="flat-bt-slider flex style2">
+           
                     <Link
-                      to=""
-                      className="sc-button header-slider style style-1 rocket fl-button pri-1"
-                    >
-                      <span>Invertir</span>
-                    </Link>
-                    <Link
-                      to=""
+                      to="https://docs.assetsweb3.com/"
                       className="sc-button header-slider style style-1 note fl-button pri-1"
                     >
-                      <span>¿Quieres tokenizar tu proyecto?</span>
+                      <span>White paper</span>
                     </Link>
                   </div>
                 </div>

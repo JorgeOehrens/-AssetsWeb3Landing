@@ -5,21 +5,21 @@ import imga2 from "../images/avatar/avt-12.jpg";
 import img3 from "../images/box-item/card-item-11.jpg";
 import imga3 from "../images/avatar/avt-13.jpg";
 import img4 from "../images/box-item/image-box-21.jpg";
-import imga4 from "../images/avatar/avt-14.jpg";
+import imga4 from "../images/avatar/avt-18.jpg";
 import imgCollection1 from "../images/avatar/avt-18.jpg";
 import imgCollection2 from "../images/avatar/avt-16.jpg";
 import imgCollection3 from "../images/avatar/avt-17.jpg";
 
 const liveAuctionData = [
   {
-    img: imgCollection1,
-    title: "Hacienda Guay Guay",
-    tags: "",
+    id: 1,
+    img: imga4,
+    title: "Tanglewood Racquet Village Token (TRV)",
+    tags: "TRV",
     imgAuthor: imga1,
-    nameAuthor: "0x2hd2380dj9",
-    price: "200 USD",
-    priceChange: "$12.246",
-    wishlist: "Verde",
+    nameAuthor: "0xaEBCC73995C009c2A0E85CfEcBb7730B568Bf61a",
+    price: "$ 1.082 USD",
+    wishlist: "100",
     imgCollection: imgCollection1,
     nameCollection: "Colorful Abstract",
   },

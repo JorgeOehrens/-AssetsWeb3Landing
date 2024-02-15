@@ -5,83 +5,22 @@ import logofooter from "../../assets/images/logo/logo2.png";
 const Footer = () => {
   const accountList = [
     {
-      title: "Mercado",
-      link: "#",
-    },
-    {
-      title: "Devs",
-      link: "#",
-    },
-    {
-      title: "Author Profile",
-      link: "#",
-    },
-    {
-      title: "Tutoriales",
-      link: "#",
-    },
+      title: "White paper",
+      link: "https://docs.assetsweb3.com/",
+    }
+    
   ];
   const resourcesList = [
-    {
-      title: "Comunidad",
-      link: "#",
-    },
-    {
-      title: "Tutoriales",
-      link: "#",
-    },
-    {
-      title: "Wallets",
-      link: "#",
-    },
-    {
-      title: "Preguntas",
-      link: "#",
-    },
+   
   ];
   const companyList = [
-    {
-      title: "Pasos a Seguir",
-      link: "#",
-    },
-    {
-      title: "Contacto",
-      link: "#",
-    },
-    {
-      title: "Preguntas",
-      link: "#",
-    },
-    {
-      title: "Partners",
-      link: "#",
-    },
+    
   ];
   const socialList = [
     {
       icon: "fab fa-twitter",
       link: "#",
-    },
-    {
-      icon: "fab fa-facebook",
-      link: "#",
-    },
-    {
-      icon: "fab fa-telegram-plane",
-      link: "#",
-    },
-    {
-      icon: "fab fa-youtube",
-      link: "#",
-    },
-    {
-      icon: "icon-fl-tik-tok-2",
-      link: "#",
-    },
-    {
-      icon: "icon-fl-vt",
-      link: "#",
-    },
+    }
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -116,8 +55,7 @@ const Footer = () => {
               <div className="widget widget-logo">
                 <div className="logo-footer" id="logo-footer"></div>
                 <p className="sub-widget-logo">
-                  Buscamos financiamiento a través de la blockchain para que
-                  nuestros inversores sus rentabilidades
+                We are seeking funding through the blockchain to provide our investors with returns.
                 </p>
               </div>
             </div>
@@ -133,52 +71,12 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-7 col-7">
-              <div className="widget widget-menu style-2">
-                <h5 className="title-widget">Información</h5>
-                <ul>
-                  {resourcesList.map((item, index) => (
-                    <li key={index}>
-                      <Link to={item.link}>{item.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 col-sm-5 col-5">
-              <div className="widget widget-menu fl-st-3">
-                <h5 className="title-widget">Tokeniza tu Proyecto</h5>
-                <ul>
-                  {companyList.map((item, index) => (
-                    <li key={index}>
-                      <Link to={item.link}>{item.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            
             <div className="col-lg-3 col-md-6 col-sm-7 col-12">
               <div className="widget widget-subcribe">
-                <h5 className="title-widget">Suscribete</h5>
                 <div className="form-subcribe">
-                  <form
-                    id="subscribe-form"
-                    action="#"
-                    method="GET"
-                    acceptCharset="utf-8"
-                    className="form-submit"
-                  >
-                    <input
-                      name="email"
-                      className="email"
-                      type="email"
-                      placeholder="usuario@yourgmail.com"
-                      required
-                    />
-                    <button id="submit" name="submit" type="submit">
-                      <i className="icon-fl-send"></i>
-                    </button>
-                  </form>
+                  
+                    
                 </div>
                 <div className="widget-social style-1 mg-t32">
                   <ul>
