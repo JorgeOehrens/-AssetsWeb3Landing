@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   return (
+
     <Routes>
       {routes.map((data, index) => (
         <Route
@@ -19,6 +20,7 @@ function App() {
         />
       ))}
     </Routes>
+
   );
 }
 

@@ -1,13 +1,16 @@
-import React , { useRef , useState , useEffect } from 'react';
+import React , { useRef , useState , useEffect, useContext } from 'react';
 import { Link , useLocation } from "react-router-dom";
 import menus from "../../pages/menu";
 import DarkMode from './DarkMode';
 import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
 import coin from '../../assets/images/logo/coin.svg'
-
+import { TransactionContext } from "../../context/TransactionContext";
+import { shortenAddress } from '../../utils/shortenAdress';
 
 const HeaderStyle2 = () => {
+    const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+
     const { pathname } = useLocation();
 
     const headerRef = useRef (null)
@@ -103,8 +106,24 @@ const HeaderStyle2 = () => {
                                 </nav>
                                 <div className="flat-search-btn flex">
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                        <Link to="https://dashboard-w3-v2.vercel.app/" className="sc-button header-slider style style-1 wallet fl-button pri-1"><span>Wallet connect
-                                        </span></Link>
+                                    { !currentAccount && (
+                                        <button 
+                                    type="button"
+                                    onClick={connectWallet}
+                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                    <span>Wallet connect
+                                        </span>
+                                    </button>
+                                    )}
+                                    { currentAccount && (
+                                        <button 
+                                    type="button"
+                                    onClick={connectWallet}
+                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                    <span>{shortenAddress(currentAccount)} 
+                                        </span>
+                                    </button>
+                                    )}
                                     </div>
 
                                     <div className="admin_active" id="header_admin">
