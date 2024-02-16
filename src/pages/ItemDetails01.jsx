@@ -16,6 +16,9 @@ import img6 from "../assets/images/avatar/document.png";
 import img7 from "../assets/images/avatar/globo.png";
 import imgdetail1 from "../assets/images/avatar/avt-18.jpg";
 import CardModal from "../components/layouts/CardModal";
+import doc1 from "../assets/images/documents/doc1.pdf";
+import doc2 from "../assets/images/documents/doc2.pdf";
+import doc3 from "../assets/images/documents/doc3.pdf";
 const ItemDetails01 = () => {
 
   const [modalShow, setModalShow] = useState(false);
@@ -227,9 +230,9 @@ const ItemDetails01 = () => {
                                   <span>Document</span>
                                   <h6>
                                     {" "}
-                                    <Link to="">
+                                    <a href={doc1} target="_blank" rel="noopener noreferrer">                                    
                                     APPRAISAL 
-                                    </Link>{" "}
+                                    </a>
                                   </h6>
                                 </div>
                               </div>
@@ -242,10 +245,11 @@ const ItemDetails01 = () => {
                                 <div className="info">
                                   <span>Contrato</span>
                                   <h6>
+
                                     {" "}
-                                    <Link to="https://goerli.etherscan.io/address/0xaebcc73995c009c2a0e85cfecbb7730b568bf61a">
+                                    <a href={doc2} target="_blank" rel="noopener noreferrer">     
                                     Reglamento Interno
-                                    </Link>{" "}
+                                    </a>
                                   </h6>
                                 </div>
                               </div>
@@ -261,9 +265,9 @@ const ItemDetails01 = () => {
                                   <span>Document</span>
                                   <h6>
                                     {" "}
-                                    <Link to="">
+                                    <a href={doc3} target="_blank" rel="noopener noreferrer">     
                                     Closing Instruction 
-                                    </Link>{" "}
+                                    </a>
                                   </h6>
                                 </div>
                               </div>
