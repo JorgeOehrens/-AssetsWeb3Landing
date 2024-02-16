@@ -15,20 +15,22 @@ const Input = ({placeholder, name, type, value, handleChange, step= "1"}) => (
   />
   );
 const CardModal = (props) => {
-  const { currentAccount, handleChange, sendTransaction, formData } = useContext(TransactionContext);
+  const { currentAccount, handleChange, sendTransaction, formData ,updateFormData} = useContext(TransactionContext);
   const [totalCostInETH, setTotalCostInETH] = useState(0);
   const pricePerTokenInETH = 0.41;
   useEffect(() => {
     // Calcula el costo total cada vez que la cantidad de tokens a comprar cambia
-    const cost = formData.amount * pricePerTokenInETH;
+    const cost = formData.tokens * pricePerTokenInETH;
+    updateFormData('amount', cost.toString());
+
     setTotalCostInETH(cost);
-  }, [formData.amount]);  
+  }, [formData.amount, formData.tokens]);  
   const handleSubmit = (e) =>{
-    const {amount, message} = formData;
+    const {amount, tokens} = formData;
 
     e.preventDefault();
 
-    if( !amount || !message )return;
+    if( !amount )return;
     sendTransaction();
 
   };
@@ -36,10 +38,9 @@ const CardModal = (props) => {
     
     <Modal show={props.show} onHide={props.onHide}>
       <Modal.Header closeButton></Modal.Header>
-      
-      <Input placeholder="Tokens a comprar" class="form-control"name="amount" type="number" handleChange={handleChange} />
-      <Input placeholder="Enviar mensaje" name="message" type="text" handleChange={handleChange} />
-      <Input placeholder="valor" name="message" type="text"  class="form-control" />
+      <Input placeholder="Tokens a comprar" class="form-control"name="tokens" type="number" handleChange={handleChange}   />
+
+
 
 
       <div className="modal-body space-y-20 pd-40">

@@ -17,7 +17,7 @@ const createEthereumContract = () => {
 
 export const TransactionProvider = ({children}) => {
     const [currentAccount,setCurrentAccount] = useState("");
-    const [formData, setFormData] = useState({addressTo:'', amount: '',  message:'', keyword: '', tokens:''});
+    const [formData, setFormData] = useState({amount: '',  tokens:''});
 
     const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'));
@@ -26,7 +26,9 @@ export const TransactionProvider = ({children}) => {
     const handleChange = (e, name) => {
         setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
     }
-    
+    const updateFormData = (name, value) => {
+      setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
     const getAllTransactions = async () => {
       try {
@@ -112,10 +114,13 @@ export const TransactionProvider = ({children}) => {
     const sendTransaction = async () => {
         try {
           if (ethereum) {
-            const {  amount, message,tokens } = formData;
+            const {  amount, message } = formData;
+            const tokens="lkd";
             const addressTo = '0xa20b60Ef1fd2D56e7F3F891894D4b50dC46D817d';
             const keyword = 'Hacienda Guay Guay'
             const transactionContract = createEthereumContract();
+            console.log("ETH:;");
+
             console.log(tokens);
             const parsedAmount = ethers.utils.parseEther(amount);
     
@@ -140,6 +145,7 @@ export const TransactionProvider = ({children}) => {
             setTransactionCount (transactionCount.toNumber());
           } else {
             console.log("No ethereum object");
+            
           }
         } catch (error) {
           console.log(error);
@@ -156,7 +162,7 @@ export const TransactionProvider = ({children}) => {
     
     );
     return (
-        <TransactionContext.Provider value= {{transactionCount,connectWallet , currentAccount, formData, setFormData,handleChange, sendTransaction,transactions, isLoading}}> 
+        <TransactionContext.Provider value= {{transactionCount,connectWallet , currentAccount, formData, setFormData,handleChange, sendTransaction,transactions, isLoading,updateFormData}}> 
             {children}
 
         </TransactionContext.Provider>
