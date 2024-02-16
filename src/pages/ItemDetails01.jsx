@@ -12,11 +12,10 @@ import img2 from "../assets/images/avatar/avt-11.jpg";
 import img3 from "../assets/images/avatar/avt-1.jpg";
 import img4 from "../assets/images/avatar/avt-5.jpg";
 import img5 from "../assets/images/avatar/avt-7.jpg";
-import img6 from "../assets/images/avatar/avt-8.jpg";
-import img7 from "../assets/images/avatar/avt-2.jpg";
+import img6 from "../assets/images/avatar/document.png";
+import img7 from "../assets/images/avatar/globo.png";
 import imgdetail1 from "../assets/images/avatar/avt-18.jpg";
 import CardModal from "../components/layouts/CardModal";
-
 const ItemDetails01 = () => {
 
   const [modalShow, setModalShow] = useState(false);
@@ -159,9 +158,9 @@ const ItemDetails01 = () => {
                   <div className="flat-tabs themesflat-tabs">
                     <Tabs>
                       <TabList>
-                        <Tab>Inversionistas</Tab>
-                        <Tab>Info</Tab>
-                        <Tab>Etapas</Tab>
+                        <Tab>Transtions</Tab>
+                        <Tab>Information</Tab>
+                        <Tab>Documents</Tab>
                       </TabList>
 
                       <TabPanel>
@@ -218,20 +217,59 @@ const ItemDetails01 = () => {
                       </TabPanel>
                       <TabPanel>
                         <div className="provenance">
-                          <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
-                          </p>
+                          <div className="client-infor sc-card-product">
+                            <div className="meta-info">
+                              <div className="author">
+                                <div className="avatar">
+                                  <img src={img6} alt="Axies" />
+                                </div>
+                                <div className="info">
+                                  <span>Document</span>
+                                  <h6>
+                                    {" "}
+                                    <Link to="">
+                                    APPRAISAL 
+                                    </Link>{" "}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="meta-info">
+                              <div className="author">
+                                <div className="avatar">
+                                  <img src={img6} alt="Axies" />
+                                </div>
+                                <div className="info">
+                                  <span>Contrato</span>
+                                  <h6>
+                                    {" "}
+                                    <Link to="https://goerli.etherscan.io/address/0xaebcc73995c009c2a0e85cfecbb7730b568bf61a">
+                                    Reglamento Interno
+                                    </Link>{" "}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="client-infor sc-card-product">
+                            <div className="meta-info">
+                              <div className="author">
+                                <div className="avatar">
+                                  <img src={img6} alt="Axies" />
+                                </div>
+                                <div className="info">
+                                  <span>Document</span>
+                                  <h6>
+                                    {" "}
+                                    <Link to="">
+                                    Closing Instruction 
+                                    </Link>{" "}
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                        
+                          </div>
                         </div>
                       </TabPanel>
                     </Tabs>
