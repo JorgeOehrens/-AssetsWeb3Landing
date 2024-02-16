@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../components/header/HeaderStyle2";
 import Footer from "../components/footer/Footer";
 import { Link } from "react-router-dom";
@@ -19,7 +19,48 @@ import CardModal from "../components/layouts/CardModal";
 import doc1 from "../assets/images/documents/doc1.pdf";
 import doc2 from "../assets/images/documents/doc2.pdf";
 import doc3 from "../assets/images/documents/doc3.pdf";
+import { TransactionContext } from "../context/TransactionContext";
+import { shortenAddress } from '../utils/shortenAdress';
+
+const TransactionCard = ({addressTo, addressFrom, timestamp, message, amount, keyword}) =>{
+  return (
+        <ul className="bid-history-list">
+          <li key={addressTo}>
+            <div className="content">
+              <div className="client">
+                <div className="sc-author-box style-2">
+                  <div className="author-avatar">
+                    <Link to="#">
+                      <img
+                        src={img7}
+                        alt="Axies"
+                        className="avatar"
+                      />
+                    </Link>
+                    <div className="badge"></div>
+                  </div>
+                  <div className="author-infor">
+                    <div className="name">
+                      <h6>
+                        <Link to="#">{shortenAddress(addressFrom)} </Link>
+                      </h6>{" "}
+                    </div>
+                    <span className="time">{timestamp}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="price">
+                <h5>{amount} ETH</h5>
+                <span>= USD</span>
+              </div>
+            </div>
+          </li>
+      </ul>
+  )
+};
+
 const ItemDetails01 = () => {
+  const { transactions, currentAccount } = useContext(TransactionContext);
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -167,41 +208,9 @@ const ItemDetails01 = () => {
                       </TabList>
 
                       <TabPanel>
-                        <ul className="bid-history-list">
-                          {dataHistory.map((item, index) => (
-                            <li key={index} item={item}>
-                              <div className="content">
-                                <div className="client">
-                                  <div className="sc-author-box style-2">
-                                    <div className="author-avatar">
-                                      <Link to="#">
-                                        <img
-                                          src={item.img}
-                                          alt="Axies"
-                                          className="avatar"
-                                        />
-                                      </Link>
-                                      <div className="badge"></div>
-                                    </div>
-                                    <div className="author-infor">
-                                      <div className="name">
-                                        <h6>
-                                          <Link to="#">{item.name} </Link>
-                                        </h6>{" "}
-                                        <span> place a bid</span>
-                                      </div>
-                                      <span className="time">{item.time}</span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="price">
-                                  <h5>{item.price}</h5>
-                                  <span>= {item.priceChange}</span>
-                                </div>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
+                      {[ ...transactions].reverse().map((transaction, i) => (
+                      <TransactionCard key={i} {...transaction} />
+                      ))}
                       </TabPanel>
                       <TabPanel>
                       <div className="asset-details">
