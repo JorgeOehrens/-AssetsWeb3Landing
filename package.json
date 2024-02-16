@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.7.2",
     "axios": "^1.3.4",
     "bootstrap": "^5.2.3",
     "ethers": "^5.7.2",

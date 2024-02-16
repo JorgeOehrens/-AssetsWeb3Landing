@@ -17,7 +17,7 @@ const createEthereumContract = () => {
 
 export const TransactionProvider = ({children}) => {
     const [currentAccount,setCurrentAccount] = useState("");
-    const [formData, setFormData] = useState({addressTo:'', amount: '',  message:'', keyword: ''});
+    const [formData, setFormData] = useState({addressTo:'', amount: '',  message:'', keyword: '', tokens:''});
 
     const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'));
@@ -112,10 +112,11 @@ export const TransactionProvider = ({children}) => {
     const sendTransaction = async () => {
         try {
           if (ethereum) {
-            const {  amount, message } = formData;
+            const {  amount, message,tokens } = formData;
             const addressTo = '0xa20b60Ef1fd2D56e7F3F891894D4b50dC46D817d';
             const keyword = 'Hacienda Guay Guay'
             const transactionContract = createEthereumContract();
+            console.log(tokens);
             const parsedAmount = ethers.utils.parseEther(amount);
     
             await ethereum.request({
