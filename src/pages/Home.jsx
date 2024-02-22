@@ -14,13 +14,34 @@ import TodayPicks from '../components/layouts/home-3/TodayPicks';
 import todayPickData from '../assets/fake-data/data-today-pick';
 import PopularCollection from '../components/layouts/home-3/PopularCollection';
 import popularCollectionData from '../assets/fake-data/data-popular-collection';
+import { useStateContext } from "../context/index";
 
 const Home03 = () => {
+    const {
+        transferNativeToken,
+        buyToken,
+        currentHolder,
+        tokenSale,
+        tokenHolders,
+        nativeToken,
+        balance,
+        address,
+        setAddress,
+        connectWallet,
+      } = useStateContext();    
     return (
         <div className='home-3'>
-            <Header />
+            <Header         
+            address={address}
+            setAddress={setAddress}
+            connectWallet={connectWallet}/>
             <Slider data={heroSliderData} />
-            <LiveAuction data={liveAuctionData} />
+            <LiveAuction 
+            data={liveAuctionData} 
+            tokenSale={tokenSale} 
+            buyToken={buyToken} 
+
+            />
 
             <Create />
             <Fq />

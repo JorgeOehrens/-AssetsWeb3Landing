@@ -55,18 +55,7 @@ export const connectingTOKENContract = async () => {
   }
 };
 
-export const getBalance = async () => {
-  try {
-    const web3modal = new Web3Modal();
-    const connection = await web3modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-
-    return await signer.getBalance();
-  } catch (error) {
-    console.log(error);
-  }
-};
+//SALE TOKEN CONTRACT
 
 const fetchTOKEN_SALEContract = (signerOrProvider) =>
   new ethers.Contract(TOKEN_SALE_ADDRESS, TOKEN_SALE_ABI, signerOrProvider);
@@ -83,3 +72,18 @@ export const connectingTOKEN_SALEContract = async () => {
     console.log(error);
   }
 };
+
+
+export const getBalance = async () => {
+  try {
+    const web3modal = new Web3Modal();
+    const connection = await web3modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+
+    return await signer.getBalance();
+  } catch (error) {
+    console.log(error);
+  }
+};
+

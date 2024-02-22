@@ -3,16 +3,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
-import { TransactionProvider } from "./context/TransactionContext";
+import { StateContextProvider } from "./context/index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
 
     <ScrollToTop />
-    <TransactionProvider>
-
+    <StateContextProvider>
     <App />
-    </TransactionProvider>
+    </StateContextProvider>
+
 
   </BrowserRouter>
 );

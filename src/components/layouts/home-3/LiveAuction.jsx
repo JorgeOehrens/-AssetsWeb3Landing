@@ -10,8 +10,13 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 
-const LiveAuction = props => {
-    const data = props.data;
+const LiveAuction = ({data, tokenSale, buyToken}) => {
+
+
+    const percentage = (tokenSale?.tokenSold / tokenSale?.tokenSaleBalance) * 100;
+    const supply =tokenSale?.tokenTotalSupply;
+    const showPercentage = percentage.toString();
+    console.log('TOOKEN SOLD',tokenSale?.tokenTotalSupply);
 
     const [modalShow, setModalShow] = useState(false);
 
@@ -20,9 +25,10 @@ const LiveAuction = props => {
             <section className="tf-section live-auctions">
                 <div className="themesflat-container">
                     <div className="row">
+
                         <div className="col-md-12">
                             <div className="">
-                                <h2 className="tf-title">Live Assets</h2>
+                                <h2 className="tf-title">Assets</h2>
                                 <div className="heading-line"></div>
                             </div>
                         </div>
@@ -59,12 +65,9 @@ const LiveAuction = props => {
                                                                 <div className="sc-card-product">
                                                                     <div className="card-media">
                                                                         <Link to="/item-details-01"><img src={item.img} alt="axies" /></Link>
-                                                                        <Link to="/login" className="wishlist-button heart"><span className="number-like">{item.wishlist}</span></Link>
                                                                         <div className="featured-countdown">
                                                                             <span className="slogan"></span>
-                                                                            <Countdown date={Date.now() + 500000000}>
-                                                                                <span>You are good to go!</span>
-                                                                            </Countdown>
+                                                                                <span>{supply}</span> tokens
                                                                         </div>
                                                                         <div className="button-place-bid">
                                                                             <button onClick={() => setModalShow(true)} className="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></button>
@@ -76,17 +79,15 @@ const LiveAuction = props => {
                                                                     </div>
                                                                     <div className="meta-info">
                                                                         <div className="author">
-                                                                            <div className="avatar">
-                                                                                <img src={item.imgAuthor} alt="axies" />
-                                                                            </div>
+                                                                           
                                                                             <div className="info">
-                                                                                <span>Creator</span>
-                                                                                <h6> <Link to="/authors-02">{item.nameAuthor}
+                                                                                <span>Project</span>
+                                                                                <h6> <Link to="/authors-02">{item.title}
                                                                                 </Link> </h6>
                                                                             </div>
                                                                         </div>
                                                                         <div className="price">
-                                                                            <span>Current Bid</span>
+                                                                            <span>Price</span>
                                                                             <h5> {item.price}</h5>
                                                                         </div>
                                                                     </div>
@@ -104,9 +105,10 @@ const LiveAuction = props => {
                 </div>
             </section>
             <CardModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                />
+        show={modalShow}
+        buyToken={buyToken}
+        onHide={() => setModalShow(false)}
+         />
         </Fragment>
     );
 }

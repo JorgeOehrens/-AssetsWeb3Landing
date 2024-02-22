@@ -19,13 +19,12 @@ import CardModal from "../components/layouts/CardModal";
 import doc1 from "../assets/images/documents/doc1.pdf";
 import doc2 from "../assets/images/documents/doc2.pdf";
 import doc3 from "../assets/images/documents/doc3.pdf";
-import { TransactionContext } from "../context/TransactionContext";
-import { shortenAddress } from '../utils/shortenAdress';
+import { useStateContext } from "../context/index";
 
-const TransactionCard = ({addressTo, addressFrom, timestamp, message, amount, keyword}) =>{
+const TransactionCard = () =>{
   return (
         <ul className="bid-history-list">
-          <li key={addressTo}>
+          <li key="">
             <div className="content">
               <div className="client">
                 <div className="sc-author-box style-2">
@@ -42,15 +41,15 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, amount, ke
                   <div className="author-infor">
                     <div className="name">
                       <h6>
-                        <Link to="#">{shortenAddress(addressFrom)} </Link>
+                        <Link to="#"> </Link>
                       </h6>{" "}
                     </div>
-                    <span className="time">{timestamp}</span>
+                    <span className="time"></span>
                   </div>
                 </div>
               </div>
               <div className="price">
-                <h5>{amount} ETH</h5>
+                <h5>ETH</h5>
                 <span>= USD</span>
               </div>
             </div>
@@ -60,40 +59,21 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, amount, ke
 };
 
 const ItemDetails01 = () => {
-  const { transactions, currentAccount } = useContext(TransactionContext);
-
+  const {
+    transferNativeToken,
+    buyToken,
+    currentHolder,
+    tokenSale,
+    tokenHolders,
+    nativeToken,
+    balance,
+    address,
+    setAddress,
+    connectWallet,
+  } = useStateContext();    
   const [modalShow, setModalShow] = useState(false);
 
-  const [dataHistory] = useState([
-    {
-      img: img1,
-      name: "0xcA4F5258F0ce4B28A5C5fa74e6377e4d51e431b2",
-      time: "hace 7 horas",
-      price: "200 USD",
-      priceChange: "250 m2",
-    },
-    {
-      img: img2,
-      name: "0xcA4F5258F0ce4B28A5C5f232323232",
-      time: "hace 9 horas",
-      price: "400 USD",
-      priceChange: "500 m2",
-    },
-    {
-      img: img3,
-      name: "0xcA4F5258F0ce4B28A5C5fa23232",
-      time: "hace 10 horas",
-      price: "400 USD",
-      priceChange: "500 m2",
-    },
-    {
-      img: img4,
-      name: "0xcA4F5258F0ce4B28A5C5fa74e6377e4d51e431b2",
-      time: "hace 12 horas",
-      price: "400 USD",
-      priceChange: "500 m2",
-    },
-  ]);
+ 
   return (
     <div className="item-details">
       <Header />
@@ -123,25 +103,23 @@ const ItemDetails01 = () => {
       <div className="tf-section tf-item-details">
         <div className="themesflat-container">
           <div className="row">
-            <div className="col-xl-6 col-md-12">
+            <div className="col-xl-3 col-md-12">
               <div className="content-left">
                 <div className="media">
                   <img src={imgdetail1} alt="Axies" />
                 </div>
               </div>
             </div>
-            <div className="col-xl-6 col-md-12">
+            <div className="col-xl-9 col-md-12">
               <div className="content-right">
                 <div className="sc-item-details">
                   <h2 className="style2">Tanglewood Racquet Village Token (TRV) </h2>
                   <div className="meta-item">
                     <div className="left">
-                      <span className="viewed eye">225</span>
+                      <span className="viewed eye"> BALANCE USUARIO {nativeToken?.tokenBalance} tokens</span>
+                      
                     </div>
-                    <div className="right">
-                      <Link to="#" className="share"></Link>
-                      <Link to="#" className="option"></Link>
-                    </div>
+           
                   </div>
                   <div className="client-infor sc-card-product">
                     <div className="meta-info">
@@ -194,12 +172,24 @@ const ItemDetails01 = () => {
                     </div>
                   </div>
                   <button
+                  type="button"
                                     onClick={() => setModalShow(true)}
                                     className="sc-button style-place-bid style bag fl-button pri-3"
                                   >
                                     <span>Invertir</span>
                                   </button>
-                  <div className="flat-tabs themesflat-tabs">
+            
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+          
+            <div className="col-xl-12 col-md-12">
+            <div className="content-left">
+                <div className="sc-item-details">
+                <div className="flat-tabs themesflat-tabs">
                     <Tabs>
                       <TabList>
                         <Tab>Transtions</Tab>
@@ -208,24 +198,24 @@ const ItemDetails01 = () => {
                       </TabList>
 
                       <TabPanel>
-                      {[ ...transactions].reverse().map((transaction, i) => (
+                      {/* {[ ...transactions].reverse().map((transaction, i) => (
                       <TransactionCard key={i} {...transaction} />
-                      ))}
+                      ))} */}
                       </TabPanel>
                       <TabPanel>
                       <div className="asset-details">
-    <ul>
-      <li><p>Loan Amount:</p> $5,300,000</li>
-      <li><p>Number of Participants:</p> 49</li>
-      <li><p>Quota per Participant:</p> $108,163</li>
-      <li><p>Ticket per Participant:</p> $100</li>
-      <li><p>Asset Unit (USD):</p> $1,082</li>
-      <li><p>Number of Transactions:</p> 4,900</li>
-      <li><p>Collateral Value:</p> $10,685,000</li>
-      <li><p>Liquidation Time:</p> 9 months</li>
-      <li><p>Total Return:</p> 9.50%</li>
-    </ul>
-  </div>
+                    <ul>
+                      <li><p>Loan Amount:</p> $5,300,000</li>
+                      <li><p>Number of Participants:</p> 49</li>
+                      <li><p>Quota per Participant:</p> $108,163</li>
+                      <li><p>Ticket per Participant:</p> $100</li>
+                      <li><p>Asset Unit (USD):</p> $1,082</li>
+                      <li><p>Number of Transactions:</p> 4,900</li>
+                      <li><p>Collateral Value:</p> $10,685,000</li>
+                      <li><p>Liquidation Time:</p> 9 months</li>
+                      <li><p>Total Return:</p> 9.50%</li>
+                    </ul>
+                  </div>
                       </TabPanel>
                       <TabPanel>
                         <div className="provenance">
@@ -246,6 +236,9 @@ const ItemDetails01 = () => {
                                 </div>
                               </div>
                             </div>
+                            </div>
+                            <div className="client-infor sc-card-product">
+
                             <div className="meta-info">
                               <div className="author">
                                 <div className="avatar">
@@ -286,14 +279,22 @@ const ItemDetails01 = () => {
                         </div>
                       </TabPanel>
                     </Tabs>
-                  </div>
-                </div>
+                  </div>               
+                  
+                  
+                   </div>
+
               </div>
+
             </div>
-          </div>
+            </div>
+
         </div>
       </div>
-      <CardModal show={modalShow} onHide={() => setModalShow(false)} />
+      <CardModal show={modalShow}
+              buyToken={buyToken}
+
+      onHide={() => setModalShow(false)} />
 
       <LiveAuction data={liveAuctionData} />
       <Footer />

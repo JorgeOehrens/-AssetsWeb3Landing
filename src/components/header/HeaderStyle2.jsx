@@ -5,11 +5,8 @@ import DarkMode from './DarkMode';
 import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
 import coin from '../../assets/images/logo/coin.svg'
-import { TransactionContext } from "../../context/TransactionContext";
-import { shortenAddress } from '../../utils/shortenAdress';
 
-const HeaderStyle2 = () => {
-    const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+const HeaderStyle2 = ({ address, connectWallet })=> {
 
     const { pathname } = useLocation();
 
@@ -106,7 +103,28 @@ const HeaderStyle2 = () => {
                                 </nav>
                                 <div className="flat-search-btn flex">
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                    { !currentAccount && (
+                                    {address ? (
+                                        <button 
+                                        type="button"
+                                        onClick={connectWallet}
+                                        className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                        <span>{address.slice(0, 15)}...
+                                            </span>
+                                        </button>
+                  
+                                        ) : (
+                                    <button 
+                                    type="button"
+                                    onClick={() => connectWallet()}
+                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                    <span>Wallet connect
+                                        </span>
+                                    </button>
+
+
+                                        
+                                        )}
+                                    {/* { !currentAccount && (
                                         <button 
                                     type="button"
                                     onClick={connectWallet}
@@ -123,7 +141,7 @@ const HeaderStyle2 = () => {
                                     <span>{shortenAddress(currentAccount)} 
                                         </span>
                                     </button>
-                                    )}
+                                    )} */}
                                     </div>
 
                                     <div className="admin_active" id="header_admin">
