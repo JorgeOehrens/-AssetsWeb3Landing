@@ -5,9 +5,9 @@ import TokenAW3 from "./TokenAW3.json";
 import SaleTokenTRV from "./SaleTokenTRV.json";
 
 //TOKEN
-export const TOKEN_ADDRESS = "0x05863fab905615d62d46e00cd2c94672c1e201dc";
+export const TOKEN_ADDRESS = "0x6bc2ec6d252dfbebcae70903d899417130f41f6e";
 export const TOKEN_ABI = TokenAW3.abi;
 
 //TOKEN SALE
-export const TOKEN_SALE_ADDRESS = "0xc13ff43781fe42426ef2e499a59836295d6c931f";
+export const TOKEN_SALE_ADDRESS = "0xd106464ce28bb4ab25acf606c779d6f981748d19";
 export const TOKEN_SALE_ABI = SaleTokenTRV.abi;

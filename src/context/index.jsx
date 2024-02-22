@@ -1,6 +1,7 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import { formatEther, parseEther, parseUnits } from "viem";
 
 //INTERNAL IMPORT
 import {
@@ -56,7 +57,7 @@ export const StateContextProvider = ({ children }) => {
         tokenSymbol: tokenSymbol,
         // tokenOwnerOfContract: tokenOwnerOfContract,
         tokenTotalSupply: tokenTotalSupply.toString(),
-        tokenBalance: tokenBalance.toString(),
+        tokenBalance: ethers.utils.formatEther(tokenBalance.toString()),
         tokenHolders: tokenHolders.toString(),
       };
       setNativeToken(nativeToken);
@@ -92,9 +93,9 @@ export const StateContextProvider = ({ children }) => {
   //BUY TOKEN
   const buyToken = async (nToken) => {
     try {
-      const amount = (ethers.utils.parseUnits(nToken, "gwei")* 100000);
+
+      
       const gasPrice2 =(ethers.utils.parseUnits("40", "gwei") * 100000);
-      const result = nToken * gasPrice2;
        
       const contract = await connectingTOKEN_SALEContract();
 
