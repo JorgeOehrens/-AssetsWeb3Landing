@@ -20,6 +20,25 @@ import doc1 from "../assets/images/documents/doc1.pdf";
 import doc2 from "../assets/images/documents/doc2.pdf";
 import doc3 from "../assets/images/documents/doc3.pdf";
 import { useStateContext } from "../context/index";
+import ImageGallery from "react-image-gallery";
+
+const images = [
+  {
+    original: imgdetail1,
+    thumbnail: imgdetail1,
+  },
+  {
+    original: imgdetail1,
+    thumbnail: imgdetail1,
+  },
+  {
+    original: imgdetail1,
+    thumbnail: imgdetail1,
+  }
+
+
+];
+
 
 const TransactionCard = () =>{
   return (
@@ -76,7 +95,11 @@ const ItemDetails01 = () => {
  
   return (
     <div className="item-details">
-      <Header />
+      <Header 
+       address={address}
+       setAddress={setAddress}
+       connectWallet={connectWallet}
+      />
       <section className="flat-title-page inner">
         <div className="overlay"></div>
         <div className="themesflat-container">
@@ -103,14 +126,14 @@ const ItemDetails01 = () => {
       <div className="tf-section tf-item-details">
         <div className="themesflat-container">
           <div className="row">
-            <div className="col-xl-3 col-md-12">
+            <div className="col-xl-6 col-md-6">
               <div className="content-left">
                 <div className="media">
-                  <img src={imgdetail1} alt="Axies" />
+                <ImageGallery items={images} />
                 </div>
               </div>
             </div>
-            <div className="col-xl-9 col-md-12">
+            <div className="col-xl-6 col-md-6">
               <div className="content-right">
                 <div className="sc-item-details">
                   <h2 className="style2">Tanglewood Racquet Village Token (TRV) </h2>
@@ -192,9 +215,11 @@ const ItemDetails01 = () => {
                 <div className="flat-tabs themesflat-tabs">
                     <Tabs>
                       <TabList>
-                        <Tab>Transtions</Tab>
+                        <Tab>Transactions</Tab>
                         <Tab>Information</Tab>
                         <Tab>Documents</Tab>
+                        <Tab>Documents</Tab>
+
                       </TabList>
 
                       <TabPanel>

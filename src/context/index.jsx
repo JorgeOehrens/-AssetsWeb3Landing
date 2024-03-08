@@ -93,14 +93,26 @@ export const StateContextProvider = ({ children }) => {
   //BUY TOKEN
   const buyToken = async (nToken) => {
     try {
+      const TOKEN_SALE_CONTRACT = await connectingTOKEN_SALEContract();
 
+      console.log("CONTRACT TOKEN SALE:: " ,TOKEN_SALE_CONTRACT )
       
-      const gasPrice2 =(ethers.utils.parseUnits("40", "gwei") * 100000);
-       
+      const pricePerTokenWei = await TOKEN_SALE_CONTRACT.getTokenSalePriceInWei();
+      // const pricePerTokenETH = ethers.utils.formatEther(pricePerTokenWei);
+
+      const nTokenBigNumber = ethers.utils.parseUnits(nToken.toString(), 18); // Asume que nToken puede ser un decimal y lo convierte a la unidad más pequeña del token (wei)
+      const pricePerTotal = pricePerTokenWei.mul(nTokenBigNumber).div(ethers.utils.parseUnits("1", 18)); // Ajusta por la conversión de unidades
+  
+
+      console.log(pricePerTotal.toString(), "Price per total in Wei");
+
+
+      // const pricePerTokenETH2 = ethers.utils.parseUnits("0.004", "ether"); // 0.04 ETH por token
+      // Calcula el costo total de los tokens
       const contract = await connectingTOKEN_SALEContract();
 
-      const buying = await contract.buyTokens(nToken, {
-        value: gasPrice2
+      const buying = await contract.buyTokens(nTokenBigNumber, {
+        value: pricePerTotal
     
       });
       await buying.wait();
