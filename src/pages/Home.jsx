@@ -17,31 +17,13 @@ import popularCollectionData from '../assets/fake-data/data-popular-collection';
 import { useStateContext } from "../context/index";
 
 const Home03 = () => {
-    const {
-        transferNativeToken,
-        buyToken,
-        currentHolder,
-        tokenSale,
-        tokenHolders,
-        nativeToken,
-        balance,
-        address,
-        setAddress,
-        connectWallet,
-      } = useStateContext();    
+   
     return (
         <div className='home-3'>
             <Header         
-            address={address}
-            setAddress={setAddress}
-            connectWallet={connectWallet}/>
-            <Slider data={heroSliderData} />
-            <LiveAuction 
-            data={liveAuctionData} 
-            tokenSale={tokenSale} 
-            buyToken={buyToken} 
-
             />
+            <Slider data={heroSliderData} />
+        
 
             <Create />
             <Fq />

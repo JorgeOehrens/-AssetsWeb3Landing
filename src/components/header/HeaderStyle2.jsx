@@ -6,7 +6,7 @@ import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
 import coin from '../../assets/images/logo/coin.svg'
 
-const HeaderStyle2 = ({ address, connectWallet })=> {
+const HeaderStyle2 = ()=> {
 
     const { pathname } = useLocation();
 
@@ -90,26 +90,6 @@ const HeaderStyle2 = ({ address, connectWallet })=> {
 </button>
 
 
-
-                                        
-                                    {/* { !currentAccount && (
-                                        <button 
-                                    type="button"
-                                    onClick={connectWallet}
-                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-                                    <span>Wallet connect
-                                        </span>
-                                    </button>
-                                    )}
-                                    { currentAccount && (
-                                        <button 
-                                    type="button"
-                                    onClick={connectWallet}
-                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-                                    <span>{shortenAddress(currentAccount)} 
-                                        </span>
-                                    </button>
-                                    )} */}
                                     </div>
 
                                     <div className="admin_active" id="header_admin">
