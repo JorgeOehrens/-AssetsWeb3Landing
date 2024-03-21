@@ -1568,12 +1568,20 @@ header{
     padding: 26px 25px 26px 13px;
 }
 
-.main-nav>ul>li>a {
+.is_dark .main-nav>ul>li>a {
     position     : relative;
     font-size    : 18px;
     line-height  : 26px;
     font-weight  : 700;
     color        : #fff;
+    padding-right: 15.5px;
+}
+.main-nav>ul>li>a {
+    position     : relative;
+    font-size    : 18px;
+    line-height  : 26px;
+    font-weight  : 700;
+    color        : black;
     padding-right: 15.5px;
 }
 
@@ -1659,7 +1667,7 @@ header{
 }
 
 .main-nav>ul>li>a:hover {
-    color: #fff;
+    color: #36007c;
 }
 
 .main-nav>ul>li .sub-menu li {
