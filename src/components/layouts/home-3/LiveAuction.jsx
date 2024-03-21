@@ -10,15 +10,7 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 
-const LiveAuction = ({data, tokenSale, buyToken}) => {
-
-
-    const percentage = (tokenSale?.tokenSold / tokenSale?.tokenSaleBalance) * 100;
-    const supply =tokenSale?.tokenTotalSupply;
-    const showPercentage = percentage.toString();
-    console.log('TOOKEN SOLD',tokenSale?.tokenTotalSupply);
-
-    const [modalShow, setModalShow] = useState(false);
+const LiveAuction = ({data}) => {
 
     return (
         <Fragment>
@@ -64,17 +56,16 @@ const LiveAuction = ({data, tokenSale, buyToken}) => {
                                                             <div className="slider-item">										
                                                                 <div className="sc-card-product">
                                                                     <div className="card-media">
-                                                                        <Link to="/item-details-01"><img src={item.img} alt="axies" /></Link>
+                                                                        <Link to="https://app.assetsweb3.com/nft-details"><img src={item.img} alt="axies" /></Link>
                                                                         <div className="featured-countdown">
                                                                             <span className="slogan"></span>
-                                                                                <span>{supply}</span> tokens
+                                                                                <span></span> tokens
                                                                         </div>
                                                                         <div className="button-place-bid">
-                                                                            <button onClick={() => setModalShow(true)} className="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></button>
                                                                         </div>
                                                                     </div>
                                                                     <div className="card-title">
-                                                                        <h5><Link to="/item-details-01">"{item.title}"</Link></h5>
+                                                                        <h5><Link to="https://app.assetsweb3.com/nft-details">"{item.title}"</Link></h5>
                                                                         <div className="tags">{item.tags}</div>
                                                                     </div>
                                                                     <div className="meta-info">
@@ -104,11 +95,7 @@ const LiveAuction = ({data, tokenSale, buyToken}) => {
                     </div>
                 </div>
             </section>
-            <CardModal
-        show={modalShow}
-        buyToken={buyToken}
-        onHide={() => setModalShow(false)}
-         />
+
         </Fragment>
     );
 }
