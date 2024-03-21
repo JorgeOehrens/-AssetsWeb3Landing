@@ -14,7 +14,7 @@ const menus = [
   {
     id: 3,
     name: "Marketplace",
-    links: '/marketplace'
+    links: 'https://app.assetsweb3.com/explore-nfts'
   
   },
 

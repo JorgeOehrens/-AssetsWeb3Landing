@@ -81,27 +81,17 @@ const HeaderStyle2 = ({ address, connectWallet })=> {
                                 </nav>
                                 <div className="flat-search-btn flex">
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                    {address ? (
-                                        <button 
-                                        type="button"
-                                        onClick={connectWallet}
-                                        className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-                                        <span>{address.slice(0, 15)}...
-                                            </span>
-                                        </button>
-                  
-                                        ) : (
+                                    
                                     <button 
-                                    type="button"
-                                    onClick={() => connectWallet()}
-                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-                                    <span>Wallet connect
-                                        </span>
-                                    </button>
+  type="button"
+  onClick={() => window.location.href='https://app.assetsweb3.com'}
+  className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+  <span>App Asset Web</span>
+</button>
+
 
 
                                         
-                                        )}
                                     {/* { !currentAccount && (
                                         <button 
                                     type="button"
