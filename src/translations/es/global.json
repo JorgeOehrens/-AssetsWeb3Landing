@@ -1,0 +1,131 @@
+{
+    "header": {
+        "menu": [
+            {
+              "id": "home",
+              "title": "Inicio"
+            },
+            {
+              "id": "community",
+              "title": "Comunidad"
+            },
+            {
+              "id": "features",
+              "title": "Características"
+            },
+            {
+              "id": "market",
+              "title": "Mercado"
+            },
+            {
+              "id": "reviews",
+              "title": "Reseñas"
+            },
+            {
+              "id": "convertor",
+              "title": "Convertidor"
+            },
+            {
+              "id": "contact",
+              "title": "Contacto"
+            }
+        ]
+    },
+    "home": {
+        "button_plane": "Comienza ahora",
+        "subtitle": {
+            "1": "La",
+            "2": "Primera",
+            "3": "Smartcoin"
+        },
+        "tittle": {
+            "1": "Proyección de Bettercoin sobre",
+            "2": "Bitcoin",
+            "3": "Tendencia"
+        },
+        "description": "El precio de Bettercoin se capitaliza diariamente en la tendencia más alcista o menos bajista entre Bitcoin y Ether, beneficiándote automáticamente.",
+        "button": "Aprende más"
+    },
+    "comunnity": {
+        "title": {
+            "1": "Conviértete en un Delegado de Better Coin",
+            "2": "¿Qué hace un Delegado?",
+            "3": "Un delegado de Better Coin actúa como intermediario en el comercio de BETTER, la criptomoneda. Su rol incluye conectar vendedores y compradores, facilitando transacciones sin afectar el precio de mercado. Ellos ganan una comisión por este servicio."
+        },
+        "price_eth": "PRECIO BETTER (ETH)",
+        "price_usd": "PRECIO BETTER (USD)"
+    },
+    "features": {
+        "title": "Descubre los detalles de Bettercoin en los siguientes 7 pasos",
+        "description": "Bettercoin, dinero inteligente completamente seguro solo para Web3 y Peer-to-peer.",
+        "box": [
+            {
+              "id": "feature-1",
+              "icon": "AiFillStar",
+              "title": "Smartcoin es un nuevo concepto de criptomoneda con capacidades de inteligencia transaccional",
+              "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. dignissimos tenetur sapiente. Corrupti, inventore?"
+            },
+            {
+              "id": "feature-2",
+              "icon": "SiFsecure",
+              "title": "Bettercoin es un conjunto de Web3 diseñado exclusivamente para intercambios entre billeteras de usuarios.",
+              "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem unde dolorem dignissimos tenetur sapiente ipsa."
+            },
+            {
+              "id": "feature-3",
+              "icon": "SiMastercomfig",
+              "title": "Lanzamiento mundial",
+              "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem tenetur sapiente ipsa. Corrupti, inventore?"
+            }
+        ]
+    },
+    "market": {
+        "tittle": {
+            "1": "¿Dónde está",
+            "2": "el precio de Better?"
+        },
+        "description": "El precio de BetterCoin es determinado por una tecnología llamada arbitraje virtual automatizado, usando la tecnología Dual Wrapped. Esto significa que el valor de BetterCoin fluctúa basado en la volatilidad de Bitcoin y Ether, sus volúmenes de comercio y tendencias de transacción."
+    },
+    "reviews": {
+        "tittle": "Reseñas de Clientes",
+        "description": "Lo que nuestros clientes dicen sobre nosotros",
+        "testimonios": [
+            {
+              "id": "1",
+              "content": "El enfoque innovador de BetterCoin de utilizar la tecnología Dual Wrapped para aprovechar la estabilidad entre Bitcoin y Ether ofrece una perspectiva intrigante. La capacidad de realizar transacciones directamente, sin intermediarios, no solo simplifica los procesos sino que también mejora la seguridad. Estas características hacen que BetterCoin sea una opción atractiva para aquellos que buscan invertir en una criptomoneda con el potencial de crecimiento estable y reducida volatilidad.",
+              "name": "",
+              "title": "0xcA4F5258F0ce4B28A5C5fa74e6377e4d51e431b2",
+              "img": "c1"
+            }
+        ]
+    },
+    "explore": {
+        "tittle": {
+            "1": "Avanza con nosotros para",
+            "2": "explorar el mundo"
+        },
+        "description": "",
+        "button": "Comencemos"
+    },
+    "contact": {
+        "tittle": "Ponte en contacto con nosotros!",
+        "description": "¿Tienes alguna pregunta? No te preocupes, conéctate con nosotros hoy haciendo clic en el botón de contacto y envía tu mensaje directamente con nosotros",
+        "button": "Contacto"
+    },
+    "Footer": {
+
+        "description":"La mejor aplicación criptográfica para comprar y vender activos criptográficos en el mundo actual."
+
+    },
+
+   
+    "Form": {
+        "tittle": "¿Tienes Preguntas?",
+        "subtitle": "No te preocupes, envíanos tus preguntas.",
+        "button": "Enviar Mensaje",
+        "label_name": "Tu Nombre",
+        "label_email": "Tu Correo Electrónico de Trabajo",
+        "label_subject": "Asunto",
+        "label_message": "Tu Mensaje"
+    }
+}

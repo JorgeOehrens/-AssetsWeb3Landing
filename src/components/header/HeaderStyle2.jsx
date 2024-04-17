@@ -5,9 +5,19 @@ import DarkMode from './DarkMode';
 import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
 import coin from '../../assets/images/logo/coin.svg'
+import { useTranslation } from 'react-i18next';
+import en from '../../assets/flags/en.png';
+import es from '../../assets/flags/es.png';
 
 const HeaderStyle2 = ()=> {
 
+    const [language, setLanguage] = useState('en');
+
+    const [t, i18n] = useTranslation("global");
+    const handleChangeLanguage = (lang) => {
+        i18n.changeLanguage(lang);
+        setLanguage(lang); 
+    };
     const { pathname } = useLocation();
 
     const headerRef = useRef (null)
@@ -77,6 +87,12 @@ const HeaderStyle2 = ()=> {
                                                 </li>
                                             ))
                                         }
+                                                        <button className={`language-button ${language === 'en' ? 'active' : ''}`} onClick={() => handleChangeLanguage("en")}>
+                    <img src={en} alt="English" />
+                </button>
+                <button className={`language-button ${language === 'es' ? 'active' : ''}`} onClick={() => handleChangeLanguage("es")}>
+                    <img src={es} alt="Español" />
+                </button>
                                     </ul>
                                 </nav>
                                 <div className="flat-search-btn flex">
