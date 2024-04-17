@@ -1,6 +1,8 @@
 import React , { useRef , useState , useEffect, useContext } from 'react';
 import { Link , useLocation } from "react-router-dom";
-import menus from "../../pages/menu";
+import menus from "../../translations/en/menu";
+import menus_es from "../../translations/es/menus_es";
+
 import DarkMode from './DarkMode';
 import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
@@ -27,6 +29,8 @@ const HeaderStyle2 = ()=> {
             window.removeEventListener('scroll', isSticky);
         };
     });
+    const currentMenu = language === 'en' ? menus : menus_es;
+
     const isSticky = (e) => {
         const header = document.querySelector('.js-header');
         const scrollTop = window.scrollY;
@@ -67,7 +71,7 @@ const HeaderStyle2 = ()=> {
                                 <nav id="main-nav" className="main-nav" ref={menuLeft} >
                                     <ul id="menu-primary-menu" className="menu">
                                         {
-                                            menus.map((data,index) => (
+                                            currentMenu.map((data,index) => (
                                                 <li key={index} onClick={()=> handleOnClick(index)} className={`menu-item ${data.namesub ? 'menu-item-has-children' : '' } ${activeIndex === index ? 'active' : ''} ` }   >
                                                     <Link to={data.links}>{data.name}</Link>
                                                     {
@@ -99,11 +103,11 @@ const HeaderStyle2 = ()=> {
                                     <div className="sc-btn-top mg-r-12" id="site-header">
                                     
                                     <button 
-  type="button"
-  onClick={() => window.location.href='https://app.assetsweb3.com'}
-  className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-  <span>App Asset Web</span>
-</button>
+                                    type="button"
+                                    onClick={() => window.location.href='https://app.assetsweb3.com'}
+                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                    <span>{t("header.button_app")}</span>
+                                    </button>
 
 
                                     </div>

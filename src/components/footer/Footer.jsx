@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logodark from "../../assets/images/logo/logo_dark.png";
 import logofooter from "../../assets/images/logo/logo2.png";
+import { useTranslation } from 'react-i18next';
+
 const Footer = () => {
+  const { t, i18n } = useTranslation("global");
+
   const accountList = [
     {
       title: "White paper",
@@ -55,7 +59,7 @@ const Footer = () => {
               <div className="widget widget-logo">
                 <div className="logo-footer" id="logo-footer"></div>
                 <p className="sub-widget-logo">
-                We are seeking funding through the blockchain to provide our investors with returns.
+                {t("Footer.subtittle")}
                 </p>
               </div>
             </div>
