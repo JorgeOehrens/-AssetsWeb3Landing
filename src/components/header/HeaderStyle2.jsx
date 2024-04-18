@@ -2,7 +2,7 @@ import React , { useRef , useState , useEffect, useContext } from 'react';
 import { Link , useLocation } from "react-router-dom";
 import menus from "../../translations/en/menu";
 import menus_es from "../../translations/es/menus_es";
-
+import CardModal from '../layouts/CardModal';
 import DarkMode from './DarkMode';
 import logodark from '../../assets/images/logo/logo.png'
 import avt from '../../assets/images/avatar/avt-2.jpg'
@@ -12,6 +12,7 @@ import en from '../../assets/flags/en.png';
 import es from '../../assets/flags/es.png';
 
 const HeaderStyle2 = ()=> {
+    const [modalShow, setModalShow] = useState(false);
 
     const [language, setLanguage] = useState('en');
 
@@ -92,21 +93,32 @@ const HeaderStyle2 = ()=> {
                                             ))
                                         }
                                                         <button className={`language-button ${language === 'en' ? 'active' : ''}`} onClick={() => handleChangeLanguage("en")}>
-                    <img src={en} alt="English" />
-                </button>
-                <button className={`language-button ${language === 'es' ? 'active' : ''}`} onClick={() => handleChangeLanguage("es")}>
-                    <img src={es} alt="Español" />
-                </button>
+                                                            <img src={en} alt="English" />
+                                                        </button>
+                                                        <button className={`language-button ${language === 'es' ? 'active' : ''}`} onClick={() => handleChangeLanguage("es")}>
+                                                            <img src={es} alt="Español" />
+                                                        </button>
                                     </ul>
                                 </nav>
                                 <div className="flat-search-btn flex">
+                                
+                                        <div className="sc-btn-top mg-r-12" id="site-header">
+                                       
+                                        <button 
+                                        type="button"
+                                        onClick={() => setModalShow(true)}
+                                        className="sc-button header-slider style style-1 rocket fl-button pri-2 mg-r-12" >
+                                        <span>{t("header.button_contact")}</span>
+                                        </button>
+                                        </div>
+
                                     <div className="sc-btn-top mg-r-12" id="site-header">
-                                    
-                                    <button 
-                                    type="button"
-                                    onClick={() => window.location.href='https://app.assetsweb3.com'}
-                                    className="sc-button header-slider style style-1 wallet fl-button pri-1" >
-                                    <span>{t("header.button_app")}</span>
+                                       
+                                        <button 
+                                        type="button"
+                                        onClick={() => window.location.href='https://app.assetsweb3.com'}
+                                        className="sc-button header-slider style style-1 wallet fl-button pri-1" >
+                                        <span>{t("header.button_app")}</span>
                                     </button>
 
 
@@ -162,7 +174,10 @@ const HeaderStyle2 = ()=> {
                 </div>
             </div>
             <DarkMode />
+            <CardModal show={modalShow} onHide={() => setModalShow(false)} />
+
         </header>
+        
     );
 }
 

@@ -1,0 +1,6 @@
+const ETHERSCAN_API_BASE_URL = "https://api.etherscan.io/api";
+
+// Tu clave API de Etherscan
+const ETHERSCAN_API_KEY = "WQG4SJ7GTJ6YNV9I465XXGG4VDHZC6HZPJ";
+
+export { ETHERSCAN_API_BASE_URL, ETHERSCAN_API_KEY };

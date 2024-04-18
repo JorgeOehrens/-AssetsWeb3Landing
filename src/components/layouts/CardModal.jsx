@@ -1,69 +1,109 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+import { db } from '../../Server/Firebase/config';
+import { collection, addDoc } from "firebase/firestore";
+import { useTranslation } from 'react-i18next';
 
+const CardModal = ({ show, onHide }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [loader, setLoader] = useState(false);
+    const [t, i18n] = useTranslation("global");
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
 
-const CardModal =({show,buyToken,onHide })  => {
-  const [nToken, setNToken] = useState(1);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoader(true);
 
+        if (formData.name && formData.email && formData.subject && formData.message) {
+            try {
+                await addDoc(collection(db, "queries"), formData);
+                alert('Message sent successfully'); // Using alert instead of toast
+                setFormData({
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                });
+            } catch (error) {
+                alert(error.message); // Using alert instead of toast
+            }
+        } else {
+            alert('All fields are required'); // Using alert instead of toast
+        }
 
-  return (
-    
-    <Modal show={show} onHide={onHide}>
-      <Modal.Header closeButton></Modal.Header>
-      <input placeholder="Tokens a comprar" class="form-control"name="tokens" type="number"    />
+        setLoader(false);
+    };
 
-      <input
-                        type="number"
-                        required="required"
-                        placeholder="1"
-                        id="first-name"
-                        min={1}
-                        class="form-control"
-                        onChange={(e) => setNToken(e.target.value)}
-                        name="name"
-                      />
-
-
-      <div className="modal-body space-y-20 pd-40">
-        <h3>Obtén tu participación</h3>
-        <p className="text-center">
-          Puedes invertir desde{" "}
-          <span className="price color-popup">150 USD</span>
-        </p>
-        <p>
-          Ingresa cantidad.{" "}
-          <span className="color-popup">4900 tokens avalible</span>
-        </p>
-        <div className="hr"></div>
-        <div className="d-flex justify-content-between">
-          <p> Necesitar tener mínimo:</p>
-          <p className="text-right price color-popup"> 182 USD </p>
-        </div>
-        <div className="d-flex justify-content-between">
-          <p> Servicio Fee:</p>
-          <p className="text-right price color-popup"> 0,057 ETH </p>
-        </div>
-        <div className="d-flex justify-content-between">
-          <p> Total a invertir:</p>
-          <p className="text-right price color-popup"> ETH </p>
-        </div>
-         
-                            <button 
-                            type="button"
-                    onClick={() => buyToken(nToken)}
-                            className="btn btn-primary"
-                            >
-                                Buy
-
-
-                            </button>
-                        
-    
-      </div>
-    </Modal>
-  );
+    return (
+        <Modal show={show} onHide={onHide}>
+            <Modal.Header closeButton>
+                <h2>{t("Form.tittle")}</h2>
+            </Modal.Header>
+            <div className="themesflat-container ">
+                <h5 className="sub-title style-1">
+                    {t("Form.subtitle")}
+                </h5>
+                <div className="form-inner">
+                    <form onSubmit={handleSubmit} noValidate className="form-submit">
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder={t("Form.label_name")}
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="form-control"
+                        />
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder={t("Form.label_email")}
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="form-control"
+                        />
+                        <input
+                            id="subject"
+                            name="subject"
+                            type="text"
+                            placeholder={t("Form.label_subject")}
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
+                            className="form-control"
+                        />
+                        <textarea
+                            name="message"
+                            rows="2"
+                            placeholder={t("Form.label_message")}
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                            className="form-control"
+                        />
+                        <button type="submit" disabled={loader} className="submit btn btn-primary">
+                            {t("Form.button")}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </Modal>
+    );
 };
 
 export default CardModal;

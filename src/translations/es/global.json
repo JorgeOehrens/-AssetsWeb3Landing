@@ -1,6 +1,8 @@
 {
   "header": {
-    "button_app" : "App de Assets Web"
+    "button_app" : "App de Assets Web",
+    "button_contact" : "Contacto"
+
   },
   "App":{
     "title": {
@@ -15,5 +17,14 @@
   },
   "Footer":{
     "subtittle":"Estamos buscando financiamiento a través de la blockchain para proporcionar rendimientos a nuestros inversores."
-  }
+  },
+  "Form": {
+    "tittle": "¿Tienes Preguntas?",
+    "subtitle": "No te preocupes, envíanos tus preguntas.",
+    "button": "Enviar Mensaje",
+    "label_name": "Tu Nombre",
+    "label_email": "Tu Correo Electrónico de Trabajo",
+    "label_subject": "Asunto",
+    "label_message": "Tu Mensaje"
+}
 }
