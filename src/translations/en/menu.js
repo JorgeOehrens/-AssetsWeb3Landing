@@ -8,7 +8,7 @@ const menus = [
   {
     id: 2,
     name: "Marketplace",
-    links: 'https://app.assetsweb3.com/explore-nfts'
+    links: 'https://app.assetsweb3.com/dashboard/marketplace'
   
   },
   ,

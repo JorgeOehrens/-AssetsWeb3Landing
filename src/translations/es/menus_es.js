@@ -8,13 +8,13 @@ const menus_es = [
     {
       id: 2,
       name: "Activos Digitales",
-      links: 'https://app.assetsweb3.com/explore-nfts'
+      links: 'https://app.assetsweb3.com/dashboard/marketplace'
     
     },
     {
       id: 3,
       name: "¿Quieres saber más?",
-      links: "https://docs.assetsweb3.com/",
+      links: "https://info.assetsweb3.com/",
     
     },
   
